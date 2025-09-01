@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import ArtList from "./components/ArtList";
 
 function ArtsSection() {
 
@@ -17,29 +18,7 @@ function ArtsSection() {
   return (
     <section>
       <h2>Arts Section</h2>
-        <ul className="art-list">
-          <li>
-            
-            {data.map((artwork) => (
-              <div key={artwork.id} className="artwork">
-                <div className="frame">
-                  <img
-                    src={`${baseUrl}${artwork.imageURL}`}
-                    alt={artwork.title}
-                  />
-                </div>
-                <h3>{artwork.title}</h3>
-                <p>Artist: {artwork.artist}</p>
-                <h4>Publication History:</h4>
-                <ul>
-                  {artwork.publicationHistory.map((item, index) => (
-                    <li key={index}>{item}</li>
-                  ))}
-                </ul>
-              </div>
-            ))}
-          </li>
-        </ul>
+        <ArtList artwork={data} baseUrl={baseUrl} />
     </section>
   )
 }
